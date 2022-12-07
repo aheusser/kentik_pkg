@@ -27,7 +27,7 @@ jobs:
         run: |
           VERSION=$(git describe --tags --always)
           echo version $VERSION
-          echo ::set-output name=version::$VERSION
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
       - name: build
         id: build
         run: |
@@ -36,7 +36,7 @@ jobs:
 
           CGO_ENABLED=0 go build -o $BINARY $PACKAGE
 
-          echo ::set-output name=binary::$BINARY
+          echo "binary=$BINARY" >> $GITHUB_OUTPUT
         env:
           GOOS:   ${{ matrix.os }}
           GOARCH: ${{ matrix.ar }}

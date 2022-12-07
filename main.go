@@ -121,7 +121,7 @@ func build(args *Args, fs vfs.FS) error {
 		}
 
 		if GithubAction {
-			fmt.Printf("::set-output name=package::%s\n", info.Target)
+			fmt.Printf("\"package=%s\" >> $GITHUB_OUTPUT\n", info.Target)
 		}
 	}
 
