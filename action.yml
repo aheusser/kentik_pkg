@@ -23,7 +23,7 @@ outputs:
     description: Package file name
 runs:
   using: docker
-  image: "docker://kentik/pkg:latest"
+  image: "docker://aheusserkollective/kentik_pkg:latest"
   args:
     - --name
     - ${{ inputs.name }}
